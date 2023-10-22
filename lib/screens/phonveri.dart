@@ -60,7 +60,7 @@ class _VerifyState extends State<Verify> {
   onPressed: () {
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => map()),
+      MaterialPageRoute(builder: (context) => Map()),
     );
   },
   style: ElevatedButton.styleFrom(
