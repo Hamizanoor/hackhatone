@@ -15,68 +15,111 @@ class loginscreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Image.asset(
-                  'assets/images/zindagi.png',
+                  'assets/images/heartlogo-removebg-preview.png',
                   height: 100,
                   width: 100,
                 ),
-                Text('ZINDAGI', style: TextStyle(color: Colors.white)),
+                Text(
+                  'Blood Centre',
+                  style: TextStyle(
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                  ),
+                ),
+                Text(
+                  'Connecting Lives',
+                  style: TextStyle(
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black,
+                  ),
+                ),
               ],
             ),
           ),
         ),
         body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
-                'LOGIN',
-                style: TextStyle(fontSize: 20),
-              ),
-              SizedBox(height: 20),
-              LoginForm(),
-            ],
-          ),
+          child: FancyLoginForm(),
         ),
       ),
     );
   }
 }
 
-class LoginForm extends StatelessWidget {
+class FancyLoginForm extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.all(20.0),
-      child: Column(
-        children: [
-          TextField(
-            decoration: InputDecoration(
-              labelText: 'Email',
-            ),
+    return Center(
+      child: SizedBox(
+        width: 400,
+        height: 300,// Specify the desired width
+        child: Container(
+          margin: EdgeInsets.symmetric(horizontal: 10.0),
+          padding: EdgeInsets.all(10.0),
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(10.0),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.grey.withOpacity(0.5),
+                spreadRadius: 5,
+                blurRadius: 7,
+                offset: Offset(0, 3),
+              ),
+            ],
           ),
-          SizedBox(height: 10),
-          TextField(
-            decoration: InputDecoration(
-              labelText: 'Password',
-            ),
-            obscureText: true,
+          child: Column(
+            children: [
+              Text(
+                'Login',
+                style: TextStyle(
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black),
+              ),
+              SizedBox(height: 10),
+              TextField(
+                decoration: InputDecoration(
+                  labelText: 'Email',
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10.0),
+                  ),
+                ),
+              ),
+              SizedBox(height: 10),
+              TextField(
+                decoration: InputDecoration(
+                  labelText: 'Password',
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10.0),
+                  ),
+                ),
+                obscureText: true,
+              ),
+              SizedBox(height: 20),
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => phonenum()),
+                  );
+                },
+                style: ElevatedButton.styleFrom(
+                  primary: Red,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10.0),
+                  ),
+                  minimumSize: Size(150, 40),
+                ),
+                child: Text(
+                  'SIGN IN',
+                  style: TextStyle(fontSize: 18),
+                ),
+              ),
+            ],
           ),
-          SizedBox(height: 20),
-          ElevatedButton(
-  onPressed: () {
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => phonenum()),
-    );
-  },
-  style: ElevatedButton.styleFrom(
-    primary: Red, 
-    minimumSize: Size(150, 40),
-  ),
-  child: Text('SIGN IN'),
-)
-
-        ],
+        ),
       ),
     );
   }

@@ -1,5 +1,5 @@
+
 import 'package:flutter/material.dart';
-import 'package:myfirstapp/constant/color.dart';
 import 'package:myfirstapp/screens/map.dart';
 
 class Verify extends StatefulWidget {
@@ -15,16 +15,15 @@ class _VerifyState extends State<Verify> {
         appBar: PreferredSize(
           preferredSize: Size.fromHeight(200),
           child: AppBar(
-            backgroundColor: Red,
+            backgroundColor: Colors.red,
             flexibleSpace: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Image.asset(
-                  'assets/images/zindagi.png',
+                  'assets/images/heartlogo-removebg-preview.png',
                   height: 100,
                   width: 100,
                 ),
-                Text('ZINDAGI', style: TextStyle(color: Colors.white)),
               ],
             ),
           ),
@@ -42,34 +41,41 @@ class _VerifyState extends State<Verify> {
                 'Enter the OTP we have sent on your mobile number: +3064567873',
                 style: TextStyle(fontSize: 16, color: Colors.black45),
               ),
-              SizedBox(height: 20,),
+              SizedBox(
+                height: 20,
+              ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   DigitBox(),
-                  SizedBox(width: 20,),
+                  SizedBox(
+                    width: 20,
+                  ),
                   DigitBox(),
-                  SizedBox(width: 20,),
+                  SizedBox(
+                    width: 20,
+                  ),
                   DigitBox(),
-                  SizedBox(width: 20,),
+                  SizedBox(
+                    width: 20,
+                  ),
                   DigitBox(),
                 ],
               ),
               SizedBox(height: 20),
               ElevatedButton(
-  onPressed: () {
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => Map()),
-    );
-  },
-  style: ElevatedButton.styleFrom(
-    primary: Red, 
-    minimumSize: Size(150, 40),
-  ),
-  child: Text('VERIFY'),
-)
-
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => GOOGLEMap()),
+                  );
+                },
+                style: ElevatedButton.styleFrom(
+                  primary: Colors.red,
+                  minimumSize: Size(150, 40),
+                ),
+                child: Text('VERIFY'),
+              )
             ],
           ),
         ),

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:myfirstapp/screens/login.dart';
 
-
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
 
@@ -14,10 +13,9 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
 
-    
     Future.delayed(Duration(seconds: 3), () {
-      
-      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => loginscreen()));
+      Navigator.pushReplacement(
+          context, MaterialPageRoute(builder: (context) => loginscreen()));
     });
   }
 
@@ -32,17 +30,25 @@ class _SplashScreenState extends State<SplashScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Image.asset(
-              'assets/images/zindagi.png',
-              height: 100,
-              width: 100,
+              'assets/images/heartlogo-removebg-preview.png',
+              height: 200,
+              width: 200,
             ),
             SizedBox(height: 20),
             Text(
-              'ZINDAGI',
+              'Blood Centre',
               style: TextStyle(
                 fontSize: 24,
                 fontWeight: FontWeight.bold,
                 color: Colors.white,
+              ),
+            ),
+            Text(
+              'Connecting Lives',
+              style: TextStyle(
+                fontSize: 24,
+                fontWeight: FontWeight.bold,
+                color: Colors.black,
               ),
             ),
           ],

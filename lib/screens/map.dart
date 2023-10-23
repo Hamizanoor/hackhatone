@@ -1,14 +1,32 @@
 import 'package:flutter/material.dart';
 import 'package:myfirstapp/constant/color.dart';
 
-class Map extends StatefulWidget {
-  const Map({Key? key}) : super(key: key);
+import 'package:myfirstapp/screens/Donordetail.dart';
+import 'package:myfirstapp/screens/NewDonor.dart';
+import 'package:myfirstapp/screens/SAVEdetail.dart';
+import 'package:myfirstapp/widegt/custmbar.dart';
+
+class GOOGLEMap extends StatefulWidget {
+  const GOOGLEMap({Key? key}) : super(key: key);
 
   @override
-  State<Map> createState() => _MapPageState();
+  State<GOOGLEMap> createState() => _GOOGLEMapPageState();
 }
 
-class _MapPageState extends State<Map> {
+class _GOOGLEMapPageState extends State<GOOGLEMap> {
+  int tappedChipIndex = -1;
+
+  List<String> chipLabels = [
+    'O+',
+    'B+',
+    'AB+',
+    'A-',
+    'B-',
+    'AB-',
+    'O-',
+    'ALL',
+  ];
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -26,19 +44,84 @@ class _MapPageState extends State<Map> {
             ),
           ],
         ),
-        body: Container(
-          height:400,
-          width: 400,
-          color: Colors.black45,
-          child: Image.asset("assets/images/Mask group.png",
-          height: 100,
-          width: 200,
-          fit: BoxFit.cover,),
-          
-          
+        body: Column(
+          children: [
+            Container(
+              height: 300,
+              width: 300,
+              color: Colors.black45,
+              child: Image.asset(
+                "assets/images/Mask group.png",
+                height: 50,
+                width: 100,
+                fit: BoxFit.cover,
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.all(16.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Text("Blood Groups"),
+                ],
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.all(16.0),
+              child: Wrap(
+                spacing: 8.0, 
+                runSpacing: 8.0,
+                children: List.generate(8, (index) {
+                  return CustomActionChip(
+                    label: chipLabels[index], 
+                    isSelected: tappedChipIndex == index,
+                    onPressed: () {
+                      setState(() {
+                        tappedChipIndex = index;
+                      });
+                    },
+                  );
+                }),
+              ),
+            ),
+            Container(
+              padding: EdgeInsets.all(16.0),
+              child: Row(
+                children: [
+                  // ElevatedButton(
+                  //   onPressed: () {
+                  //     Navigator.push(
+                  //       context,
+                  //       MaterialPageRoute(builder: (context) => SaveDetail()),
+                  //     );
+                  //   },
+                  //   style: ElevatedButton.styleFrom(
+                  //     primary: Red,
+                  //     minimumSize: Size(150, 40),
+                  //   ),
+                  //   child: Text('Show All'),
+                  // ),
+
+                  SizedBox(width: 16.0), 
+                  ElevatedButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => DonorDetail()),
+                      );
+                    },
+                    style: ElevatedButton.styleFrom(
+                      primary: Red,
+                      minimumSize: Size(150, 40),
+                    ),
+                    child: Text('ADD NEW DONOR'),
+                  )
+                ],
+              ),
+            ),
+          ],
         ),
-        ),
-      
+      ),
     );
   }
 }
