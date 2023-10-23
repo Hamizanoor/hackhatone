@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:myfirstapp/constant/color.dart';
 import 'package:myfirstapp/screens/SAVEdetail.dart';
-import 'package:myfirstapp/screens/NewDonor.dart';
 
 class DonorDetail extends StatefulWidget {
   @override

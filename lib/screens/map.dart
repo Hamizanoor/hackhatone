@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:myfirstapp/constant/color.dart';
 
 import 'package:myfirstapp/screens/Donordetail.dart';
-import 'package:myfirstapp/screens/NewDonor.dart';
-import 'package:myfirstapp/screens/SAVEdetail.dart';
+
 import 'package:myfirstapp/widegt/custmbar.dart';
 
 class GOOGLEMap extends StatefulWidget {
