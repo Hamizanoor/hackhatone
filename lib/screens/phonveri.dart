@@ -1,5 +1,5 @@
-
 import 'package:flutter/material.dart';
+import 'package:myfirstapp/constant/color.dart';
 import 'package:myfirstapp/screens/map.dart';
 
 class Verify extends StatefulWidget {
@@ -29,17 +29,53 @@ class _VerifyState extends State<Verify> {
           ),
         ),
         body: Center(
+          child: FancyBox(),
+        ),
+      ),
+    );
+  }
+}
+
+class FancyBox extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: SizedBox(
+        width: 400,
+        height: 300,
+        child: Container(
+          margin: EdgeInsets.symmetric(horizontal: 10.0),
+          padding: EdgeInsets.all(10.0),
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(10.0),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.grey.withOpacity(0.5),
+                spreadRadius: 5,
+                blurRadius: 7,
+                offset: Offset(0, 3),
+              ),
+            ],
+          ),
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
                 'PHONE VERIFICATION',
-                style: TextStyle(fontSize: 20),
+                style: TextStyle(
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black),
               ),
-              SizedBox(height: 20),
+              SizedBox(
+                height: 30,
+              ),
               Text(
-                'Enter the OTP we have sent on your mobile number: +3064567873',
-                style: TextStyle(fontSize: 16, color: Colors.black45),
+                "“Enter the OTP we have sent on your mobile number: +3064567873”",
+                style: TextStyle(
+                    fontSize: 12,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black45),
               ),
               SizedBox(
                 height: 20,
@@ -47,19 +83,13 @@ class _VerifyState extends State<Verify> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  DigitBox(),
-                  SizedBox(
-                    width: 20,
-                  ),
-                  DigitBox(),
-                  SizedBox(
-                    width: 20,
-                  ),
-                  DigitBox(),
-                  SizedBox(
-                    width: 20,
-                  ),
-                  DigitBox(),
+                  OTPVerificationBox(),
+                  SizedBox(width: 10),
+                  OTPVerificationBox(),
+                  SizedBox(width: 10),
+                  OTPVerificationBox(),
+                  SizedBox(width: 10),
+                  OTPVerificationBox(),
                 ],
               ),
               SizedBox(height: 20),
@@ -71,11 +101,17 @@ class _VerifyState extends State<Verify> {
                   );
                 },
                 style: ElevatedButton.styleFrom(
-                  primary: Colors.red,
+                  primary: Red,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10.0),
+                  ),
                   minimumSize: Size(150, 40),
                 ),
-                child: Text('VERIFY'),
-              )
+                child: Text(
+                  'VERIFY',
+                  style: TextStyle(fontSize: 18),
+                ),
+              ),
             ],
           ),
         ),
@@ -84,24 +120,22 @@ class _VerifyState extends State<Verify> {
   }
 }
 
-class DigitBox extends StatelessWidget {
+class OTPVerificationBox extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 50,
-      height: 50,
-      alignment: Alignment.center,
+      width: 50, // Adjust the width as needed
+      height: 50, // Adjust the height as needed
       decoration: BoxDecoration(
-        border: Border.all(width: 1),
+        border: Border.all(width: 1, color: Colors.black),
+        borderRadius: BorderRadius.circular(5.0),
       ),
       child: TextField(
-        decoration: InputDecoration(
-          border: InputBorder.none,
-          counterText: '',
-        ),
-        maxLength: 1,
         keyboardType: TextInputType.number,
         textAlign: TextAlign.center,
+        decoration: InputDecoration(
+          border: InputBorder.none,
+        ),
       ),
     );
   }

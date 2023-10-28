@@ -19,22 +19,22 @@ class phonenum extends StatelessWidget {
                   height: 100,
                   width: 100,
                 ),
-Text(
-              'Blood Centre',
-              style: TextStyle(
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
-                color: Colors.white,
-              ),
-            ),
-            Text(
-              'Connecting Lives',
-              style: TextStyle(
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
-                color: Colors.black,
-              ),
-            ),
+                Text(
+                  'Blood Centre',
+                  style: TextStyle(
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                  ),
+                ),
+                Text(
+                  'Connecting Lives',
+                  style: TextStyle(
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black,
+                  ),
+                ),
               ],
             ),
           ),
@@ -78,20 +78,16 @@ class FancyLoginForm extends StatelessWidget {
                     fontWeight: FontWeight.bold,
                     color: Colors.black),
               ),
-              SizedBox(height: 30,),
-              Text("“We only need your phone number for authentication purposes and will not contact you otherwise”" ,style: TextStyle(
+              SizedBox(
+                height: 30,
+              ),
+              Text(
+                "“We only need your phone number for authentication purposes and will not contact you otherwise”",
+                style: TextStyle(
                     fontSize: 12,
                     fontWeight: FontWeight.bold,
-                    color: Colors.black45),),
-              // SizedBox(height: 10),
-              // TextField(
-              //   decoration: InputDecoration(
-              //     labelText: 'Email',
-              //     border: OutlineInputBorder(
-              //       borderRadius: BorderRadius.circular(10.0),
-              //     ),
-              //   ),
-              // ),
+                    color: Colors.black45),
+              ),
               SizedBox(height: 20),
               TextField(
                 decoration: InputDecoration(
@@ -129,4 +125,3 @@ class FancyLoginForm extends StatelessWidget {
     );
   }
 }
-

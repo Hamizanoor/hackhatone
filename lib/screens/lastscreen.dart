@@ -1,24 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:myfirstapp/screens/login.dart';
 
-class SplashScreen extends StatefulWidget {
-  const SplashScreen({Key? key}) : super(key: key);
+class lastScreen extends StatefulWidget {
+  const lastScreen({super.key});
 
   @override
-  State<SplashScreen> createState() => _SplashScreenState();
+  State<lastScreen> createState() => _lastScreenState();
 }
 
-class _SplashScreenState extends State<SplashScreen> {
-  @override
-  void initState() {
-    super.initState();
-
-    Future.delayed(Duration(seconds: 3), () {
-      Navigator.pushReplacement(
-          context, MaterialPageRoute(builder: (context) => loginscreen()));
-    });
-  }
-
+class _lastScreenState extends State<lastScreen> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -59,3 +48,4 @@ class _SplashScreenState extends State<SplashScreen> {
     );
   }
 }
+

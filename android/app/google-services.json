@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "814834032241",
+    "project_id": "hackhatone",
+    "storage_bucket": "hackhatone.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:814834032241:android:af71d49662d9663e37c5d0",
+        "android_client_info": {
+          "package_name": "com.example.project"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBSFcC-r25L12ub9gxqbFi1TPdU_hXjPFk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
