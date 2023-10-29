@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:myfirstapp/constant/color.dart'; 
 import 'package:myfirstapp/screens/manager.dart';
 
 class SaveDetail extends StatelessWidget {
