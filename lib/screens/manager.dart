@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:myfirstapp/constant/color.dart';
 import 'package:myfirstapp/screens/lastscreen.dart';
-import 'package:myfirstapp/screens/phonenum.dart';
+
 
 class manageprofile extends StatelessWidget {
   @override

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:myfirstapp/constant/color.dart'; // Import your color file
-import 'package:myfirstapp/screens/manager.dart'; // Import the manager.dart file
+import 'package:myfirstapp/constant/color.dart'; 
+import 'package:myfirstapp/screens/manager.dart';
 
 class SaveDetail extends StatelessWidget {
   final List<Map<String, String>> detailsList;
@@ -22,7 +22,7 @@ class SaveDetail extends StatelessWidget {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => manageprofile(), // Replace with your actual profile page
+                    builder: (context) => manageprofile(), 
                   ),
                 );
               },
@@ -36,7 +36,7 @@ class SaveDetail extends StatelessWidget {
               margin: EdgeInsets.all(10),
               padding: EdgeInsets.all(10),
               decoration: BoxDecoration(
-                border: Border.all(color: Colors.red), // Ensure consistent color usage
+                border: Border.all(color: Colors.red),
                 borderRadius: BorderRadius.circular(10),
               ),
               child: Column(

@@ -124,8 +124,8 @@ class OTPVerificationBox extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 50, // Adjust the width as needed
-      height: 50, // Adjust the height as needed
+      width: 50, 
+      height: 50, 
       decoration: BoxDecoration(
         border: Border.all(width: 1, color: Colors.black),
         borderRadius: BorderRadius.circular(5.0),
