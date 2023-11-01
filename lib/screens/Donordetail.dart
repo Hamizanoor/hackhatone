@@ -138,7 +138,7 @@ class _DonorDetailState extends State<DonorDetail> {
                     style: TextStyle(fontSize: 18),
                   ),
                 ),
-                  SizedBox(width: 30),
+                  SizedBox(width: 16),
                   ElevatedButton(
                     onPressed: () {
                       Navigator.push(

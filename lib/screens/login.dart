@@ -1,8 +1,37 @@
 import 'package:flutter/material.dart';
-import 'package:myfirstapp/constant/color.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:myfirstapp/screens/phonenum.dart';
 
-class loginscreen extends StatelessWidget {
+class loginscreen extends StatefulWidget {
+  @override
+  _loginscreenState createState() => _loginscreenState();
+}
+
+class _loginscreenState extends State<loginscreen> {
+  final FirebaseAuth _auth = FirebaseAuth.instance;
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+
+  Future<void> _signInWithEmailAndPassword() async {
+    try {
+      final UserCredential userCredential =
+          await _auth.signInWithEmailAndPassword(
+        email: emailController.text,
+        password: passwordController.text,
+      );
+      final User? user = userCredential.user;
+
+      if (user != null) {
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => phonenum()));
+      }
+    } catch (e) {
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+        content: Text('Login failed. Please check your email and password.'),
+      ));
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -10,7 +39,7 @@ class loginscreen extends StatelessWidget {
         appBar: PreferredSize(
           preferredSize: Size.fromHeight(200),
           child: AppBar(
-            backgroundColor: Red,
+            backgroundColor: Colors.red,
             flexibleSpace: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -40,7 +69,11 @@ class loginscreen extends StatelessWidget {
           ),
         ),
         body: Center(
-          child: FancyLoginForm(),
+          child: FancyLoginForm(
+            emailController: emailController,
+            passwordController: passwordController,
+            signInWithEmailAndPassword: _signInWithEmailAndPassword,
+          ),
         ),
       ),
     );
@@ -48,12 +81,22 @@ class loginscreen extends StatelessWidget {
 }
 
 class FancyLoginForm extends StatelessWidget {
+  final TextEditingController emailController;
+  final TextEditingController passwordController;
+  final Function signInWithEmailAndPassword;
+
+  FancyLoginForm({
+    required this.emailController,
+    required this.passwordController,
+    required this.signInWithEmailAndPassword,
+  });
+
   @override
   Widget build(BuildContext context) {
     return Center(
       child: SizedBox(
         width: 400,
-        height: 300,// Specify the desired width
+        height: 300,
         child: Container(
           margin: EdgeInsets.symmetric(horizontal: 10.0),
           padding: EdgeInsets.all(10.0),
@@ -74,12 +117,14 @@ class FancyLoginForm extends StatelessWidget {
               Text(
                 'Login',
                 style: TextStyle(
-                    fontSize: 24,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.black),
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black,
+                ),
               ),
               SizedBox(height: 10),
               TextField(
+                controller: emailController,
                 decoration: InputDecoration(
                   labelText: 'Email',
                   border: OutlineInputBorder(
@@ -89,6 +134,7 @@ class FancyLoginForm extends StatelessWidget {
               ),
               SizedBox(height: 10),
               TextField(
+                controller: passwordController,
                 decoration: InputDecoration(
                   labelText: 'Password',
                   border: OutlineInputBorder(
@@ -99,14 +145,9 @@ class FancyLoginForm extends StatelessWidget {
               ),
               SizedBox(height: 20),
               ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => phonenum()),
-                  );
-                },
+                onPressed: () => signInWithEmailAndPassword(),
                 style: ElevatedButton.styleFrom(
-                  primary: Red,
+                  primary: Colors.red,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10.0),
                   ),
@@ -124,3 +165,7 @@ class FancyLoginForm extends StatelessWidget {
     );
   }
 }
+
+
+
+
